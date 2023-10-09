@@ -45,37 +45,65 @@
 // console.log(taxAdjustedPrices);
 
 const prices = [10.99, 5.99, 3.99, 6.59];
-const tax = 0.19;
+// const tax = 0.19;
 
-const taxAdjustedPrices = prices.map((price, idx, prices) => {
-  const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
-  return priceObj;
-});
+// const taxAdjustedPrices = prices.map((price, idx, prices) => {
+//   const priceObj = { index: idx, taxAdjPrice: price * (1 + tax) };
+//   return priceObj;
+// });
 
-// console.log(prices, taxAdjustedPrices);
+// // console.log(prices, taxAdjustedPrices);
 
-const sortedPrices = prices.sort((a, b) => {
-  if (a > b) {
-    return 1;
-  } else if (a === b) {
-    return 0;
-  } else {
-    return -1;
-  }
-});
+// const sortedPrices = prices.sort((a, b) => {
+//   if (a > b) {
+//     return 1;
+//   } else if (a === b) {
+//     return 0;
+//   } else {
+//     return -1;
+//   }
+// });
 
-console.log(sortedPrices);
+// console.log(sortedPrices);
 
-const filteredArray = prices.filter((price, index, prices) => {
-  return price > 6;
-});
+// const filteredArray = prices.filter((price, index, prices) => {
+//   return price > 6;
+// });
 
-// const filteredArray = prices.filter(price => price > 6);//alternatively
+// // const filteredArray = prices.filter(price => price > 6);//alternatively
 
-console.log(filteredArray);
+// console.log(filteredArray);
 
-const sum = prices.reduce((prevValue, curValue, curIndex, prices) => {
-  return prevValue + curValue;
-},0);
+// const sum = prices.reduce((prevValue, curValue, curIndex, prices) => {
+//   return prevValue + curValue;
+// },0);
 
-console.log(sum);
+// console.log(sum);
+
+// const data = 'new york;10.99;2000';
+
+// const transformedData = data.split(';');
+// console.log(transformedData);
+
+// const nameFragments = ['Max', 'Schwarz'];
+// const name = nameFragments.join(' ');
+// console.log(name);
+
+// const copiedNameFragments = [...nameFragments];
+// console.log(copiedNameFragments, nameFragments);
+// copiedNameFragments.push('Mr');
+// console.log(copiedNameFragments, nameFragments);
+
+// const persons = [{name: 'Max', age: 30}, {name: 'Manuel', age: 31}];
+// const copiedPersons = [...persons];
+
+// persons.push({name: 'Anna', age: 28});
+// console.log(pesons, copiedPersons);
+
+const nameData = ['Max', 'Schwarz', 'Mr'];
+
+// const firstName = nameData[0];
+// const lastName = nameData[1];
+
+const [firstName, lastName, ...otherInformation] = nameData;
+console.log(firstName, lastName, otherInformation);
