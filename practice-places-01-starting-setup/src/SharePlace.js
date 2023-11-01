@@ -1,3 +1,5 @@
+import {} from './UI/Modal.js';
+
 class PlaceFinder {
   constructor(){
     const addressForm = document.querySelector('form');
@@ -12,13 +14,18 @@ class PlaceFinder {
       alert('Location feature is not available in your browser.');
       return;
     }
+    const modal = new Modal('loading-modal-content', 'Loading location - please wait');
+    modal.show();
     navigator.geolocation.getCurrentPosition(successResult => {
       const coordinates = {
         lat: successResult.coords.latitude,
         lng: successResult.coords.longitude
       };
+      console.log(coordinates);
+      modal.hide();
     }, 
     error => {
+      modal.hide();
       alert('Could not locate automatically. Please enter an address manually!');
     });
   }
