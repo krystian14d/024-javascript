@@ -1,6 +1,6 @@
 const path = require('path');
-const CleanPlugin = require('clean-webpack-plugin');
-
+//const CleanPlugin = require('clean-webpack-plugin');
+ 
 module.exports = {
   mode: 'development',
   entry: {
@@ -10,12 +10,22 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist', 'assets', 'scripts'),
-    publicPath: 'assets/scripts/'
+    publicPath: 'assets/scripts/',
+    clean: true
+ 
   },
-  devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: './dist'
-  },
+  devtool: 'eval-cheap-module-source-map',
+  devServer:{
+    static:{
+         directory: path.join(__dirname,'dist'),
+    },
+    compress: true,
+    port: 8080,
+},
+// }
+  // devServer: {
+  //   contentBase: './dist'
+  // },
   module: {
     rules: [
       {
@@ -35,5 +45,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new CleanPlugin.CleanWebpackPlugin()]
+  // plugins: [new CleanPlugin.CleanWebpackPlugin()]
 };
